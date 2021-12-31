@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:background="@color/snow">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="5">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/latte"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/itemNameTxt"
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:hint="Latte"
+                    android:gravity="center|left"
+                    android:fontFamily="@font/dancing_script_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="22dp"/>
+
+                <TextView
+                    android:id="@+id/itemPriceTxt"
+                    android:layout_width="150dp"
+                    android:layout_height="25dp"
+                    android:hint="Price"
+                    android:gravity="center|left"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/minusBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:text="-"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/itemQtnTxt"
+                        android:layout_width="45dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/text_border"
+                        android:gravity="center"
+                        android:hint="2"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="15dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/plsBtn"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:text="+"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
