@@ -10,6 +10,6 @@ interface JsonPlaceHolderApi {
     @GET("storeInfo")
     fun shop(): Call<ShopModel>
 
-    @get:GET("products")
-    val products: Call<List<ProductModel>?>?
+    @GET("products")
+    fun products(): Call<List<ProductModel>>
 }
