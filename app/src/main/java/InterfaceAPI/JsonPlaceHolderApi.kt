@@ -7,8 +7,8 @@ import retrofit2.http.GET
 
 interface JsonPlaceHolderApi {
 
-    @get:GET("storeInfo")
-    val shop: Call<List<ShopModel>?>?
+    @GET("storeInfo")
+    fun shop(): Call<ShopModel>
 
     @get:GET("products")
     val products: Call<List<ProductModel>?>?

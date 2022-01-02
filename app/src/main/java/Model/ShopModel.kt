@@ -7,13 +7,13 @@ class ShopModel {
     @SerializedName("name")
     var name: String? = null
     @SerializedName("rating")
-    var rating = 0
+    var rating = 0.0
     @SerializedName("openingTime")
     var openTime: String? = null
     @SerializedName("closingTime")
     var closeTime: String? = null
 
-    constructor(name: String?, rating: Int, openTime: String?, closeTime: String?) {
+    constructor(name: String?, rating: Double, openTime: String?, closeTime: String?) {
         this.name = name
         this.rating = rating
         this.openTime = openTime
