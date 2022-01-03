@@ -1,6 +1,5 @@
 package Adapter
 
-import InterfaceAPI.ItemClickListener
 import Model.ProductModel
 import android.content.Context
 import android.view.LayoutInflater

@@ -2,7 +2,6 @@ package Activities
 
 import Adapter.ProductAdapter
 import ApiService.ApiServices
-import InterfaceAPI.ItemClickListener
 import InterfaceAPI.JsonPlaceHolderApi
 import Model.ProductModel
 import Model.ShopModel
@@ -18,12 +17,9 @@ import com.e.smartshop.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import android.content.Intent
 import android.view.View
 import android.widget.ProgressBar
-import java.io.Serializable
 
 class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener {
 

@@ -10,7 +10,6 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface JsonPlaceHolderApi {
-
     @GET("storeInfo")
     fun shop(): Call<ShopModel>
 
