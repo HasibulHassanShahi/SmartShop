@@ -1,12 +1,14 @@
 package Activities
 
 import Adapter.ProductAdapter
+import InterfaceAPI.ItemClickListener
 import InterfaceAPI.JsonPlaceHolderApi
 import Model.ProductModel
 import Model.ShopModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,9 +19,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import android.content.Intent
+import android.view.View
+import java.io.Serializable
 
 
-class ProductActivity : AppCompatActivity() {
+class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener {
 
     private val baseUrl: String = "https://c8d92d0a-6233-4ef7-a229-5a91deb91ea1.mock.pstmn.io/"
 
@@ -28,9 +33,13 @@ class ProductActivity : AppCompatActivity() {
     lateinit var openTime: TextView
     lateinit var closeTime: TextView
     lateinit var recyclerView: RecyclerView
+    lateinit var qtnTxt: TextView
+    lateinit var cartBtn: Button
 
     var shopArrayList: ArrayList<ShopModel>? = null
     var productList: ArrayList<ProductModel>? = null
+    var cartList: ArrayList<ProductModel>? = null
+    var itemCount = 0
 
     lateinit var retrofit: Retrofit
     lateinit var jsonPlaceHolderApi: JsonPlaceHolderApi
@@ -47,6 +56,8 @@ class ProductActivity : AppCompatActivity() {
         openTime = findViewById(R.id.openTxt)
         closeTime = findViewById(R.id.closeTxt)
         recyclerView = findViewById(R.id.recyclerView)
+        qtnTxt = findViewById(R.id.qtnTxt)
+        cartBtn = findViewById(R.id.cartBtn)
 
         retrofit = Retrofit.Builder().baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -56,6 +67,14 @@ class ProductActivity : AppCompatActivity() {
 
         shopInfoFromAPI()
         productInfoFromAPI()
+
+        cartBtn.setOnClickListener {
+            if (cartList!!.size > 0){
+                var intent = Intent(this@ProductActivity, CartActivity::class.java)
+                intent.putExtra("itemList", cartList)
+                startActivity(intent)
+            }
+        }
     }
 
     private fun shopInfoFromAPI(){
@@ -90,6 +109,7 @@ class ProductActivity : AppCompatActivity() {
     private fun productInfoFromAPI(){
 
         productList = ArrayList()
+        cartList = ArrayList()
 
         val productCall = jsonPlaceHolderApi.products()
         productCall.enqueue(object : Callback<List<ProductModel>> {
@@ -105,7 +125,7 @@ class ProductActivity : AppCompatActivity() {
                 val products = response.body()
                 if (products != null) {
                     for (product in products){
-                        productList!!.add(ProductModel(product.name,product.price,product.imageUrl))
+                        productList!!.add(ProductModel(product.name,product.price,product.imageUrl, itemCount))
                     }
                 }
 
@@ -124,10 +144,25 @@ class ProductActivity : AppCompatActivity() {
         if (itemList?.size!! > 0){
             layoutManager = LinearLayoutManager(this)
             recyclerView.layoutManager = layoutManager
-            adapter = ProductAdapter(this,itemList)
+            adapter = ProductAdapter(this,itemList,this)
             recyclerView.adapter = adapter
         }else{
 
         }
     }
+
+    override fun OnItemClick(position: Int) {
+        itemCount++
+        qtnTxt.text = itemCount.toString()
+
+        productList!![position].qtn = productList!![position].qtn + 1
+
+        cartList!!.add(
+            ProductModel(productList!![position].name,
+                productList!![position].price,
+                productList!![position].imageUrl,
+                productList!![position].qtn))
+
+    }
+
 }

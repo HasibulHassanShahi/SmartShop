@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Activities.CartActivity"
+    android:orientation="vertical"
+    android:weightSum="5">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:padding="3dp">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="25dp"
+            android:text="Delivery Address"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center|left"/>
+
+        <EditText
+            android:id="@+id/addressEdt"
+            android:layout_width="350dp"
+            android:layout_height="40dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/itemTxt"
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:hint="Item"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/qtnNpriceTxt"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:hint="Qtn"/>
+
+        <TextView
+            android:id="@+id/amountTxt"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:hint="Amount"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:text="Total"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center|right"
+            android:paddingRight="20dp"/>
+
+        <TextView
+            android:id="@+id/totalTxt"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:hint="= 100"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center|left"
+            android:paddingRight="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:gravity="right">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/paymentBtn"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="Confirm"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
