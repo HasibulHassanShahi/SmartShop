@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hasibul/AndroidStudioProjects/SmartShop/app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/SmartShop/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.38177083333333334" />
+        <entry key="..\:/Users/Hasibul/AndroidStudioProjects/SmartShop/app/src/main/res/drawable/ic_launcher_background.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/SmartShop/app/src/main/res/drawable/text_border.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/SmartShop/app/src/main/res/layout/activity_cart.xml" value="0.365625" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/SmartShop/app/src/main/res/layout/activity_main.xml" value="0.365625" />
