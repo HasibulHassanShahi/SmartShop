@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context="Activities.CartActivity"
     android:orientation="vertical"
-    android:weightSum="5">
+    android:weightSum="5"
+    android:background="@color/snow">
 
     <LinearLayout
         android:orientation="vertical"
@@ -46,7 +47,7 @@
             android:layout_height="match_parent"
             android:gravity="left"
             android:hint="Item"
-            android:paddingLeft="5dp"
+            android:paddingLeft="15dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="15dp"/>
@@ -57,7 +58,7 @@
             android:layout_weight="1.5"
             android:layout_height="match_parent"
             android:gravity="left"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="15dp"
@@ -69,7 +70,7 @@
             android:layout_weight="2"
             android:layout_height="match_parent"
             android:gravity="left"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="15dp"
@@ -90,10 +91,10 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="30dp"
-            android:text="Total"
+            android:text="Total  ="
             android:fontFamily="@font/poppins_medium"
             android:gravity="center|right"
-            android:paddingRight="20dp"/>
+            android:paddingRight="5dp"/>
 
         <TextView
             android:id="@+id/totalTxt"
@@ -103,7 +104,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="30dp"
-            android:hint="= 100"
+            android:hint="100"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center|left"
             android:paddingRight="20dp"/>

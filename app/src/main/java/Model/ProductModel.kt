@@ -18,10 +18,4 @@ class ProductModel: Serializable {
         this.imageUrl = imageUrl
         this.qtn = qtn
     }
-
-    constructor(qtn: Int) {
-        this.qtn = qtn
-    }
-
-
 }

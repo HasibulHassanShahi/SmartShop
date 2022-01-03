@@ -1,22 +1,24 @@
-package com.e.smartshop
+package Activities
 
-import Activities.ProductActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
+import android.widget.Button
+import com.e.smartshop.R
 
-class MainActivity : AppCompatActivity() {
+class SuccessActivity : AppCompatActivity() {
+
+    lateinit var backToHome: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_success)
 
-        var handler: Handler = Handler()
-        handler.postDelayed({
+        backToHome = findViewById(R.id.backToHome)
+
+        backToHome.setOnClickListener {
             val intent = Intent(this,ProductActivity::class.java)
             startActivity(intent)
-            finish()
-        }, 2000)
+        }
     }
 }

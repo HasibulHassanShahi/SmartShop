@@ -8,7 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="snow">#EEE9E9</color>
-
+    <color name="accent">#D81B60</color>
+    <color name="blue">#1566e0</color>
     <color name="ghost_white">#f8f8ff</color>
     <color name="sky_blue">#87ceeb</color>
 </resources>

@@ -1,6 +1,7 @@
 package Activities
 
 import Adapter.ProductAdapter
+import ApiService.ApiServices
 import InterfaceAPI.ItemClickListener
 import InterfaceAPI.JsonPlaceHolderApi
 import Model.ProductModel
@@ -21,12 +22,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import android.content.Intent
 import android.view.View
+import android.widget.ProgressBar
 import java.io.Serializable
 
-
 class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener {
-
-    private val baseUrl: String = "https://c8d92d0a-6233-4ef7-a229-5a91deb91ea1.mock.pstmn.io/"
 
     lateinit var shopName: TextView
     lateinit var rating: TextView
@@ -35,14 +34,14 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
     lateinit var recyclerView: RecyclerView
     lateinit var qtnTxt: TextView
     lateinit var cartBtn: Button
+    lateinit var prograssBar: ProgressBar
 
     var shopArrayList: ArrayList<ShopModel>? = null
     var productList: ArrayList<ProductModel>? = null
     var cartList: ArrayList<ProductModel>? = null
     var itemCount = 0
 
-    lateinit var retrofit: Retrofit
-    lateinit var jsonPlaceHolderApi: JsonPlaceHolderApi
+    lateinit var apiServices: ApiServices
 
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>? = null
@@ -58,12 +57,9 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
         recyclerView = findViewById(R.id.recyclerView)
         qtnTxt = findViewById(R.id.qtnTxt)
         cartBtn = findViewById(R.id.cartBtn)
+        prograssBar = findViewById(R.id.progreesBarApi)
 
-        retrofit = Retrofit.Builder().baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi::class.java)
+        apiServices = ApiServices()
 
         shopInfoFromAPI()
         productInfoFromAPI()
@@ -80,6 +76,10 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
     private fun shopInfoFromAPI(){
         shopArrayList = ArrayList()
 
+        prograssBar.visibility = View.VISIBLE
+
+        val jsonPlaceHolderApi: JsonPlaceHolderApi = apiServices.getRetrofit()
+
         val shopInfoCall = jsonPlaceHolderApi.shop()
         shopInfoCall?.enqueue(object : Callback<ShopModel> {
             override fun onResponse(
@@ -92,11 +92,10 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
                 }
 
                 val shops = response.body()!!
-                shopName.setText(shops.name)
-                rating.setText(shops.rating.toString()+" out of 5")
-                openTime.setText(shops.openTime?.dropLast(8))
-                closeTime.setText(shops.closeTime?.dropLast(8))
-
+                shopName.text = shops.name
+                rating.text = shops.rating.toString()+" out of 5"
+                openTime.text = "Open: "+shops.openTime?.dropLast(8)
+                closeTime.text = "Close: "+shops.closeTime?.dropLast(8)
             }
 
             override fun onFailure(call: Call<ShopModel>, t: Throwable) {
@@ -110,6 +109,8 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
 
         productList = ArrayList()
         cartList = ArrayList()
+
+        val jsonPlaceHolderApi: JsonPlaceHolderApi = apiServices.getRetrofit()
 
         val productCall = jsonPlaceHolderApi.products()
         productCall.enqueue(object : Callback<List<ProductModel>> {
@@ -129,7 +130,8 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
                     }
                 }
 
-                Toast.makeText(this@ProductActivity,productList?.size.toString(),Toast.LENGTH_LONG).show()
+                prograssBar.visibility = View.GONE
+                //Toast.makeText(this@ProductActivity,productList?.size.toString(),Toast.LENGTH_LONG).show()
                 loadRecyclerView(productList)
             }
 
@@ -157,12 +159,15 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
 
         productList!![position].qtn = productList!![position].qtn + 1
 
-        cartList!!.add(
-            ProductModel(productList!![position].name,
-                productList!![position].price,
-                productList!![position].imageUrl,
-                productList!![position].qtn))
-
+        if (productList!![position].qtn > 1){
+            cartList!![position].qtn = productList!![position].qtn
+        }else{
+            cartList!!.add(
+                ProductModel(productList!![position].name,
+                    productList!![position].price,
+                    productList!![position].imageUrl,
+                    productList!![position].qtn))
+        }
     }
 
 }
