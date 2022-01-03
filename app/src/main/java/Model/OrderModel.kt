@@ -1,6 +1,5 @@
 package Model
 
-import android.text.Editable
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 

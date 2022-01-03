@@ -6,10 +6,13 @@ class ShopModel {
 
     @SerializedName("name")
     var name: String? = null
+
     @SerializedName("rating")
     var rating = 0.0
+
     @SerializedName("openingTime")
     var openTime: String? = null
+
     @SerializedName("closingTime")
     var closeTime: String? = null
 
