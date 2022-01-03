@@ -1,0 +1,32 @@
+Index: app/src/main/java/InterfaceAPI/ItemClickListener.kt
+===================================================================
+diff --git a/app/src/main/java/InterfaceAPI/ItemClickListener.kt b/app/src/main/java/InterfaceAPI/ItemClickListener.kt
+deleted file mode 100644
+--- a/app/src/main/java/InterfaceAPI/ItemClickListener.kt	(revision 9d1e05ab79e98abe1e835bee7f48bfc0df78e7a5)
++++ /dev/null	(revision 9d1e05ab79e98abe1e835bee7f48bfc0df78e7a5)
+@@ -1,8 +0,0 @@
+-package InterfaceAPI
+-
+-import Model.ProductModel
+-
+-interface ItemClickListener {
+-    fun minus(textData:ProductModel, position:Int)
+-    fun add(textData:ProductModel, position:Int)
+-}
+\ No newline at end of file
+Index: app/src/main/java/InterfaceAPI/JsonPlaceHolderApi.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/InterfaceAPI/JsonPlaceHolderApi.kt b/app/src/main/java/InterfaceAPI/JsonPlaceHolderApi.kt
+--- a/app/src/main/java/InterfaceAPI/JsonPlaceHolderApi.kt	(revision 9d1e05ab79e98abe1e835bee7f48bfc0df78e7a5)
++++ b/app/src/main/java/InterfaceAPI/JsonPlaceHolderApi.kt	(date 1641229935553)
+@@ -10,7 +10,6 @@
+ import retrofit2.http.POST
+ 
+ interface JsonPlaceHolderApi {
+-
+     @GET("storeInfo")
+     fun shop(): Call<ShopModel>
+ 

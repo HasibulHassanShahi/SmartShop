@@ -1,0 +1,108 @@
+Index: app/src/main/java/ApiService/ApiServices.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ApiService/ApiServices.kt b/app/src/main/java/ApiService/ApiServices.kt
+--- a/app/src/main/java/ApiService/ApiServices.kt	(revision ddde077d46061cb2befe0077d9b223d0ebffd7ac)
++++ b/app/src/main/java/ApiService/ApiServices.kt	(date 1641229540078)
+@@ -20,6 +20,4 @@
+ 
+         return jsonPlaceHolderApi
+     }
+-
+-
+ }
+\ No newline at end of file
+Index: app/src/main/java/Activities/CartActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/Activities/CartActivity.kt b/app/src/main/java/Activities/CartActivity.kt
+--- a/app/src/main/java/Activities/CartActivity.kt	(revision ddde077d46061cb2befe0077d9b223d0ebffd7ac)
++++ b/app/src/main/java/Activities/CartActivity.kt	(date 1641229788579)
+@@ -104,7 +104,6 @@
+             override fun onFailure(call: Call<String>, t: Throwable) {
+                 Toast.makeText(this@CartActivity,"Cart Fail",Toast.LENGTH_LONG).show()
+             }
+-
+         })
+ 
+     }
+Index: app/src/main/java/Activities/ProductActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/Activities/ProductActivity.kt b/app/src/main/java/Activities/ProductActivity.kt
+--- a/app/src/main/java/Activities/ProductActivity.kt	(revision ddde077d46061cb2befe0077d9b223d0ebffd7ac)
++++ b/app/src/main/java/Activities/ProductActivity.kt	(date 1641229337034)
+@@ -91,6 +91,7 @@
+                     return
+                 }
+ 
++
+                 val shops = response.body()!!
+                 shopName.text = shops.name
+                 rating.text = shops.rating.toString()+" out of 5"
+Index: app/src/main/java/com/e/smartshop/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/e/smartshop/MainActivity.kt b/app/src/main/java/com/e/smartshop/MainActivity.kt
+--- a/app/src/main/java/com/e/smartshop/MainActivity.kt	(revision ddde077d46061cb2befe0077d9b223d0ebffd7ac)
++++ b/app/src/main/java/com/e/smartshop/MainActivity.kt	(date 1641229667409)
+@@ -12,7 +12,7 @@
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_main)
+ 
+-        var handler: Handler = Handler()
++        var handler = Handler()
+         handler.postDelayed({
+             val intent = Intent(this,ProductActivity::class.java)
+             startActivity(intent)
+Index: app/src/main/java/Activities/SuccessActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/Activities/SuccessActivity.kt b/app/src/main/java/Activities/SuccessActivity.kt
+--- a/app/src/main/java/Activities/SuccessActivity.kt	(revision ddde077d46061cb2befe0077d9b223d0ebffd7ac)
++++ b/app/src/main/java/Activities/SuccessActivity.kt	(date 1641229788579)
+@@ -8,15 +8,15 @@
+ 
+ class SuccessActivity : AppCompatActivity() {
+ 
+-    lateinit var backToHome: Button
++    lateinit var backToHomeBtn: Button
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_success)
+ 
+-        backToHome = findViewById(R.id.backToHome)
++        backToHomeBtn = findViewById(R.id.backToHome)
+ 
+-        backToHome.setOnClickListener {
++        backToHomeBtn.setOnClickListener {
+             val intent = Intent(this,ProductActivity::class.java)
+             startActivity(intent)
+         }
+Index: app/src/main/java/Adapter/ProductAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/Adapter/ProductAdapter.kt b/app/src/main/java/Adapter/ProductAdapter.kt
+--- a/app/src/main/java/Adapter/ProductAdapter.kt	(revision ddde077d46061cb2befe0077d9b223d0ebffd7ac)
++++ b/app/src/main/java/Adapter/ProductAdapter.kt	(date 1641229463439)
+@@ -77,7 +77,6 @@
+             this.onItemClickListener = onItemClickListener
+ 
+             itemView.setOnClickListener(this)
+-
+         }
+ 
+         fun setImage(imageUrl: String){

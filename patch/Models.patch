@@ -1,0 +1,52 @@
+Index: app/src/main/java/Model/ShopModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/Model/ShopModel.kt b/app/src/main/java/Model/ShopModel.kt
+--- a/app/src/main/java/Model/ShopModel.kt	(revision 64389746c5b73dbeca50b95ba6c4dbf2c1e3cbfd)
++++ b/app/src/main/java/Model/ShopModel.kt	(date 1641230098090)
+@@ -6,10 +6,13 @@
+ 
+     @SerializedName("name")
+     var name: String? = null
++
+     @SerializedName("rating")
+     var rating = 0.0
++
+     @SerializedName("openingTime")
+     var openTime: String? = null
++
+     @SerializedName("closingTime")
+     var closeTime: String? = null
+ 
+Index: app/src/main/java/Model/ProductModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/Model/ProductModel.kt b/app/src/main/java/Model/ProductModel.kt
+--- a/app/src/main/java/Model/ProductModel.kt	(revision 64389746c5b73dbeca50b95ba6c4dbf2c1e3cbfd)
++++ b/app/src/main/java/Model/ProductModel.kt	(date 1641230098044)
+@@ -1,6 +1,5 @@
+ package Model
+ 
+-import android.os.Parcelable
+ import com.google.gson.annotations.SerializedName
+ import java.io.Serializable
+ 
+Index: app/src/main/java/Model/OrderModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/Model/OrderModel.kt b/app/src/main/java/Model/OrderModel.kt
+--- a/app/src/main/java/Model/OrderModel.kt	(revision 64389746c5b73dbeca50b95ba6c4dbf2c1e3cbfd)
++++ b/app/src/main/java/Model/OrderModel.kt	(date 1641230098059)
+@@ -1,6 +1,5 @@
+ package Model
+ 
+-import android.text.Editable
+ import com.google.gson.annotations.SerializedName
+ import java.io.Serializable
+ 
