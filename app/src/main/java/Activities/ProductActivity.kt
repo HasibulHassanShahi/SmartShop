@@ -91,6 +91,7 @@ class ProductActivity : AppCompatActivity(), ProductAdapter.OnItemClickListener 
                     return
                 }
 
+
                 val shops = response.body()!!
                 shopName.text = shops.name
                 rating.text = shops.rating.toString()+" out of 5"

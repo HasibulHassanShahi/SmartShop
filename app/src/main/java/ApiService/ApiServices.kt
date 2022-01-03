@@ -20,6 +20,4 @@ class ApiServices {
 
         return jsonPlaceHolderApi
     }
-
-
 }

@@ -77,7 +77,6 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder> {
             this.onItemClickListener = onItemClickListener
 
             itemView.setOnClickListener(this)
-
         }
 
         fun setImage(imageUrl: String){

@@ -104,7 +104,6 @@ class CartActivity : AppCompatActivity() {
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Toast.makeText(this@CartActivity,"Cart Fail",Toast.LENGTH_LONG).show()
             }
-
         })
 
     }

@@ -8,15 +8,15 @@ import com.e.smartshop.R
 
 class SuccessActivity : AppCompatActivity() {
 
-    lateinit var backToHome: Button
+    lateinit var backToHomeBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_success)
 
-        backToHome = findViewById(R.id.backToHome)
+        backToHomeBtn = findViewById(R.id.backToHome)
 
-        backToHome.setOnClickListener {
+        backToHomeBtn.setOnClickListener {
             val intent = Intent(this,ProductActivity::class.java)
             startActivity(intent)
         }
